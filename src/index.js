@@ -25,39 +25,36 @@ Se XP for maior ou igual a 10.001 = Radiante
 Ao final deve se exibir uma mensagem:
 "O Herói de nome **{nome}** está no nível de **{nivel}**"*/
 
-let nome = ""
-let XP = 2.01
-const nivel = {
+var readlineSync = require('readline-sync');
 
+let sair = false;
 
+while (!sair) {
+    let nome = readlineSync.question("Digite o nome do heroi (ou 'sair' para encerrar): ");
+    
+    if (nome.toLowerCase() === 'sair') {
+        sair = true;
+        break;
+    }
+    
+    let XP = readlineSync.question("Digite a quantidade de XP do heroi: ");
+    let XP1 = parseInt(XP);
+
+    if (XP1 < 1000) {
+        console.log(`O Herói de nome: ${nome} está no nível de Ferro`);
+    } else if (1001 <= XP1 && XP1 <= 2000) {
+        console.log(`O Herói de nome ${nome} está no nível de Bronze`);
+    } else if (2001 <= XP1 && XP1 <= 5000) {
+        console.log(`O Herói de nome ${nome} está no nível de Prata`);
+    } else if (5001 <= XP1 && XP1 <= 7000) {
+        console.log(`O Herói de nome ${nome} está no nível de Ouro`);
+    } else if (7001 <= XP1 && XP1 <= 8000) {
+        console.log(`O Herói de nome ${nome} está no nível de Platina`);
+    } else if (8001 <= XP1 && XP1 <= 9000) {
+        console.log(`O Herói de nome ${nome} está no nível de Ascendente`);
+    } else if (9001 <= XP1 && XP1 <= 10000) {
+        console.log(`O Herói de nome ${nome} está no nível de Imortal`);
+    }
 }
 
-
-
-if (XP < 1000){
-    console.log(`O Herói de nome ${nome} está no nível de Ferro}`)
-}
-
-if (1001 < XP > 2000 ){
-    console.log(`O Herói de nome ${nome} está no nível de Bronze`)
-}
-
-if (2001 < XP > 5000 ){
-    console.log(`O Herói de nome ${nome} está no nível de Prata`)
-}
-
-if (5001 < XP > 7000 ){
-    console.log(`O Herói de nome ${nome} está no nível de Ouro`)
-}
-
-if (7001 < XP > 8000 ){
-    console.log(`O Herói de nome ${nome} está no nível de Platina`)
-}
-
-if (8001 < XP > 9000 ){
-    console.log(`O Herói de nome ${nome} está no nível de Ascendente`)
-}
-
-if (9001 < XP > 10000 ){
-    console.log(`O Herói de nome ${nome} está no nível de Imortal`)
-}
+console.log("Programa encerrado.");
